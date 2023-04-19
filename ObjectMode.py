@@ -1,9 +1,8 @@
-import pymel.core as pm
-import maya.mel as mel
+import maya.cmds as cmds
 
 # Check if a display layer named "other" exists, and delete it if it does
-if pm.ls('other', type='displayLayer'):
-    pm.delete('other')
-    
+if cmds.ls('other', type='displayLayer'):
+    cmds.delete('other')
+
 # Set Maya's select mode to object mode
-mel.eval("changeSelectMode -object")
+cmds.selectMode(object=True)

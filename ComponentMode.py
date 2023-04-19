@@ -1,35 +1,32 @@
-import pymel.core as pm
-import maya.mel as mel
+from maya import cmds
 
 # Check if the 'other' display layer already exists
-if not pm.ls('other', type='displayLayer'):
+if not cmds.ls('other', type='displayLayer'):
 
     # Create the 'other' display layer
-    other_layer = pm.createDisplayLayer(name='other', empty=True)
-    pm.setAttr("{}.displayType".format(other_layer), 2)  # Set the display type to 'reference'
+    other_layer = cmds.createDisplayLayer(name='other', empty=True)
+    cmds.setAttr("{}.displayType".format(other_layer), 2)  # Set the display type to 'reference'
     
     # Get the list of selected transforms
-    selected_transforms = pm.selected(type='transform')
-    print (selected_transforms)
+    selected_transforms = cmds.ls(selection=True, type='transform')
     
     # Get the list of all transforms in the scene
-    all_transforms = pm.ls(type='transform')
+    all_transforms = cmds.ls(type='transform')
     
     # Calculate the list of transforms not in the selected list
     other_transforms = list(set(all_transforms) - set(selected_transforms))
-    print (other_transforms)
     
     # Add the other transforms to the 'other' display layer
-    other_layer.addMembers(other_transforms)
+    cmds.editDisplayLayerMembers(other_layer, other_transforms, noRecurse=True)
 
 # Switch to component selection mode
-mel.eval("changeSelectMode -component")
+cmds.selectMode(component=True)
 
 # Set selection type to polygon vertex
-mel.eval("selectType -polymeshVertex true")
+cmds.selectType(polymeshVertex=True)
 
 # Set selection type to polygon edges
-#mel.eval("selectType -polymeshEdge true")
+#cmds.selectType(polymeshEdge=True)
 
 # Set selection type to polygon faces
-#mel.eval("selectType -polymeshFace true")
+#cmds.selectType(polymeshFace=True)
