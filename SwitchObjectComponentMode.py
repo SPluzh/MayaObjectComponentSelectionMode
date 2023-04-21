@@ -1,11 +1,13 @@
 from maya import cmds
 
+other_layer_name = 'sw_oc_other'
+
 def ObjectsToLayer():
     # Check if the 'other' display layer already exists
-    if not cmds.ls('other', type='displayLayer'):
+    if not cmds.ls(other_layer_name, type='displayLayer'):
 
         # Create the 'other' display layer
-        other_layer = cmds.createDisplayLayer(name='other', empty=True)
+        other_layer = cmds.createDisplayLayer(name=other_layer_name, empty=True)
         
         # Set the display type to 'reference'
         cmds.setAttr("{}.displayType".format(other_layer), 2)  
@@ -51,8 +53,16 @@ def FaceMode():
     
 def ObjectMode():
     # Check if a display layer named "other" exists, and delete it if it does
-    if cmds.ls('other', type='displayLayer'):
-        cmds.delete('other')
+    if cmds.ls(other_layer_name, type='displayLayer'):
+        cmds.delete(other_layer_name)
 
     # Set Maya's select mode to object mode
     cmds.selectMode(object=True)
+    
+def ToggleTemplatedMode():
+    if cmds.ls(other_layer_name, type='displayLayer'):
+        other_layer = cmds.ls(other_layer_name, type='displayLayer')[0]
+        if (cmds.getAttr("{}.displayType".format(other_layer)) == 2):
+            cmds.setAttr("{}.displayType".format(other_layer), 1) 
+        else:
+            cmds.setAttr("{}.displayType".format(other_layer), 2) 
