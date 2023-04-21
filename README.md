@@ -38,4 +38,4 @@ import SwitchObjectComponentMode as SwitchOCMode
 SwitchOCMode.ToggleTemplatedMode()
 ```
 
-https://user-images.githubusercontent.com/131027290/233621333-84a50c0f-ef20-4304-adeb-747a9d0b00fb.mp4
+https://user-images.githubusercontent.com/131027290/233621560-985e4dd1-bf48-49c9-bb09-f11202ef948f.mp4
