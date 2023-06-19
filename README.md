@@ -1,4 +1,4 @@
-# Select components only from current object
+# Select components only from current object in Autodesk Maya
 
 https://user-images.githubusercontent.com/131027290/233620762-30a888c8-a8b1-457e-a4f3-cefe4c5e9357.mp4
 
