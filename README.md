@@ -1,6 +1,7 @@
 # Maya Selection Isolation Tool
 
 https://user-images.githubusercontent.com/131027290/233620762-30a888c8-a8b1-457e-a4f3-cefe4c5e9357.mp4
+
 This script for Autodesk Maya automatically isolates selected objects by placing **unselected objects** into a special display layer (`sw_oc_other`) and making them unselectable. It then switches Maya into component selection mode (vertices, edges, faces), allowing you to safely work on the selected geometry only.
 
 ## 🧩 Features
