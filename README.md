@@ -1,18 +1,19 @@
-# Maya Selection Isolation Tool
+# Maya Selection Isolation Tool (`SwitchObjectComponentMode.py`)
 
 https://user-images.githubusercontent.com/131027290/233620762-30a888c8-a8b1-457e-a4f3-cefe4c5e9357.mp4
 
-This script for Autodesk Maya automatically isolates selected objects by placing **unselected objects** into a special display layer (`sw_oc_other`) and making them unselectable. It then switches Maya into component selection mode (vertices, edges, faces), allowing you to safely work on the selected geometry only.
+This script for Autodesk Maya allows you to **quickly switch between object and component selection modes** (vertices, edges, faces) using hotkeys — while temporarily **isolating only the selected objects**. All other objects are placed into a display layer (`sw_oc_other`) and set to `reference` or `template`, preventing accidental edits.
 
 ## 🧩 Features
 
-- 🟦 Switches to component selection mode:
-  - Vertices (`VertexMode`)
-  - Edges (`EdgeMode`)
-  - Faces (`FaceMode`)
-- 🟥 Moves all **unselected** objects to a display layer `sw_oc_other` and sets them to `reference`
-- 🟨 Returns to object selection mode and removes the isolation layer (`ObjectMode`)
-- 🔁 Toggles the layer between `reference` and `template` modes (`ToggleTemplatedMode`)
+- 🔀 Hotkey-based switching between:
+  - `Object Mode`
+  - `Vertex Mode`
+  - `Edge Mode`
+  - `Face Mode`
+- 🟥 Unselected objects are added to a `sw_oc_other` display layer and made unselectable (`reference`)
+- 🟨 Automatically removes the isolation layer when returning to object mode
+- 🔁 Toggle the display type of the isolation layer between `reference` and `template`
 
 # Install
 
